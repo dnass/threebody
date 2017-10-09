@@ -7,7 +7,7 @@
     "react-dom": "^15.6.2",
     "react-scripts": "1.0.14",
     "react-three-renderer": "^3.2.1",
-    "three": "^0.87.1",
+    "three": "^0.87.1"
   },
   "scripts": {
     "start": "react-scripts start",
