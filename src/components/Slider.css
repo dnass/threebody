@@ -1,0 +1,11 @@
+input[type="range"] {
+  margin: 0 10px;
+}
+
+input[type="text"] {
+  width: 35px;
+  font-family: monospace;
+  text-align: right;
+  background-color: inherit;
+  border: 1px solid black;
+}
