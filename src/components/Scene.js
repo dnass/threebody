@@ -23,7 +23,7 @@ class Scene extends Component {
 
       this.controls.update();
 
-      let delta = 0.01, g = 100;
+      let delta = 0.01, g = 10;
 
       let sun1 = this.state.bodies[0],
         sun2 = this.state.bodies[1],
@@ -33,9 +33,9 @@ class Scene extends Component {
       let vec2 = p.pos.clone().sub(sun1.pos.clone());
       let vec3 = p.pos.clone().sub(sun2.pos.clone());
 
-      let f12 = vec1.clone().normalize().multiplyScalar(-1 * g * sun1.m * sun2.m / vec1.clone().lengthSq())
-      let f1p = vec2.clone().normalize().multiplyScalar(-1 * g * sun1.m * p.m / vec2.clone().lengthSq())
-      let f2p = vec3.clone().normalize().multiplyScalar(-1 * g * sun2.m * p.m / vec3.clone().lengthSq())
+      let f12 = vec1.clone().normalize().multiplyScalar(-1 * g * sun1.m * sun2.m / Math.pow(vec1.clone().length(), 2))
+      let f1p = vec2.clone().normalize().multiplyScalar(-1 * g * sun1.m * p.m / Math.pow(vec2.clone().length(), 2))
+      let f2p = vec3.clone().normalize().multiplyScalar(-1 * g * sun2.m * p.m / Math.pow(vec3.clone().length(), 2))
 
       let sun1m = sun1.mom.clone().sub(f12.clone().add(f1p).multiplyScalar(delta));
       let sun2m = sun2.mom.clone().add(f12.clone().sub(f2p).multiplyScalar(delta));
@@ -125,6 +125,7 @@ class Scene extends Component {
         mainCamera="mainCamera"
         width={width}
         height={height}
+        antialias={true}
         onAnimate={this._onAnimate}
         canvasRef={this._react3Ref}
       >
