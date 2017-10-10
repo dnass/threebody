@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Controls from './components/Controls';
+import MainControls from './components/MainControls';
+import BodyControls from './components/BodyControls';
 import Scene from './components/Scene'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleParamChange = this.handleParamChange.bind(this);
 
     const bodies = [0,1,2].map(n => ({
       number: n,
@@ -20,20 +22,27 @@ class App extends Component {
       }
     }))
 
-    this.state = { bodies }
+    this.state = { bodies, t: 0.01, g: 10, trails: true }
   }
 
-  handleBodyChange(event) {
+  handleBodyChange({ number, param }) {
     const bodies = this.state.bodies;
-    bodies[event.number].params[event.param.name] = event.param.value;
+    bodies[number].params[param.name] = param.value;
     this.setState({ bodies })
+  }
+
+  handleParamChange({ name, value }) {
+    this.setState({ [name]: value })
   }
 
   render() {
     return (
       <div className="App">
-        { this.state.bodies.map((body, i) => <Controls key={`body${body.number}`} number={body.number} onChange={this.handleBodyChange} params={body.params} /> ) }
-        <Scene bodies={this.state.bodies} />
+        <div style={{ width: '228px' }}>
+          <MainControls t={this.state.t} g={this.state.g} trails={this.state.trails} onChange={this.handleParamChange} />
+          { this.state.bodies.map(body => <BodyControls key={`body${body.number}`} {...body} onChange={this.handleBodyChange} /> ) }
+        </div>
+        <Scene {...this.state} />
       </div>
     );
   }

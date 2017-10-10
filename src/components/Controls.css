@@ -1,10 +1,13 @@
 .controls {
-  border: 1px solid black;
   padding: 6px 12px;
-  margin: 12px;
   display: inline-block;
   font-family: monospace;
   position: relative;
   z-index: 1;
   background-color: white;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 4px;
 }

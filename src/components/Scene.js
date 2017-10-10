@@ -16,14 +16,16 @@ class Scene extends Component {
         pos: new THREE.Vector3(params.x, params.y, params.z),
         mom: new THREE.Vector3(params.vx, params.vy, params.vz).multiplyScalar(params.m)
       })),
-      trails: [[],[],[]]
+      trails: [[],[],[]],
+      t: props.t,
+      g: props.g,
+      showTrails: props.trails
    };
 
     this._onAnimate = () => {
-
       this.controls.update();
 
-      let delta = 0.01, g = 10;
+      let delta = this.props.t, g = this.props.g;
 
       let sun1 = this.state.bodies[0],
         sun2 = this.state.bodies[1],
@@ -98,7 +100,10 @@ class Scene extends Component {
         pos: new THREE.Vector3(params.x, params.y, params.z),
         mom: new THREE.Vector3(params.vx, params.vy, params.vz).multiplyScalar(params.m)
       })),
-      trails: [[],[],[]]
+      trails: [[],[],[]],
+      t: nextProps.t,
+      g: nextProps.g,
+      showTrails: nextProps.trails
     }
     this.setState(state)
   }
@@ -151,7 +156,7 @@ class Scene extends Component {
               />
             </mesh>
           ))}
-          {this.state.trails.length > 1 && this.state.trails.map((trail, i) => (
+          {this.state.showTrails && this.state.trails.map((trail, i) => (
             <line key={`trail${Math.random()}`} >
               <geometry
                 vertices={ trail }
