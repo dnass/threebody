@@ -22,7 +22,12 @@ class App extends Component {
       }
     }))
 
-    this.state = { bodies, t: 0.01, g: 10, trails: true }
+    this.state = {
+      bodies,
+      t: 0.01,
+      g: 10,
+      showTrails: true
+    }
   }
 
   handleBodyChange({ number, param }) {
@@ -39,7 +44,7 @@ class App extends Component {
     return (
       <div className="App">
         <div style={{ width: '228px' }}>
-          <MainControls t={this.state.t} g={this.state.g} trails={this.state.trails} onChange={this.handleParamChange} />
+          <MainControls {...this.state} onChange={this.handleParamChange} />
           { this.state.bodies.map(body => <BodyControls key={`body${body.number}`} {...body} onChange={this.handleBodyChange} /> ) }
         </div>
         <Scene {...this.state} />

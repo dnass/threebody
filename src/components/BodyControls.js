@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Slider from './Slider.js';
-import colors from '../helpers/colors';
+import Slider from './Slider';
+import colors from '../utils/colors';
 import './Controls.css';
 
 class BodyControls extends Component {

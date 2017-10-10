@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Slider from './Slider.js';
-import Checkbox from './Checkbox.js';
+import Slider from './Slider';
+import Checkbox from './Checkbox';
 import './Controls.css';
 
 class MainControls extends Component {
@@ -9,8 +9,8 @@ class MainControls extends Component {
     this.handleParamChange = this.handleParamChange.bind(this);
   }
 
-  handleParamChange({ name, value }) {
-    this.props.onChange({ name, value });
+  handleParamChange(param) {
+    this.props.onChange(param);
   }
 
   render() {
@@ -19,7 +19,7 @@ class MainControls extends Component {
         <div className='title'>Global</div>
         <Slider onChange={this.handleParamChange} property='t' value={this.props.t} min={0} max={0.1} />
         <Slider onChange={this.handleParamChange} property='g' value={this.props.g} min={0} max={25} />
-        <Checkbox onChange={this.handleParamChange} property='trails' value={this.props.trails} min={1} max={100} />
+        <Checkbox onChange={this.handleParamChange} property='showTrails' value={this.props.showTrails} min={1} max={100} />
       </div>
     );
   }
