@@ -24,7 +24,7 @@ class App extends Component {
 
     this.state = {
       bodies,
-      speed: 1,
+      speed: 10,
       g: 10,
       zoom: 5,
       showTrails: true
