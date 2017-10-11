@@ -24,8 +24,9 @@ class App extends Component {
 
     this.state = {
       bodies,
-      t: 0.01,
+      speed: 1,
       g: 10,
+      zoom: 5,
       showTrails: true
     }
   }
@@ -43,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div style={{ width: '228px' }}>
+        <div style={{ width: '245px' }}>
           <MainControls {...this.state} onChange={this.handleParamChange} />
           { this.state.bodies.map(body => <BodyControls key={`body${body.number}`} {...body} onChange={this.handleBodyChange} /> ) }
         </div>

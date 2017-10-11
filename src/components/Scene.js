@@ -37,16 +37,17 @@ class Scene extends Component {
     delete this.controls;
   }
 
-  _initState = ({ bodies, t, g, showTrails }) => {
+  _initState = ({ bodies, speed, g, zoom, showTrails }) => {
     return {
-      cameraposition: new THREE.Vector3(0, 0, 5),
+      cameraposition: new THREE.Vector3(0, 0, zoom),
       bodies: bodies.map(({ params }) => ({
         mass: params.m,
         position: new THREE.Vector3(params.x, params.y, params.z),
         momentum: new THREE.Vector3(params.vx, params.vy, params.vz).multiplyScalar(params.m)
       })),
       trails: [[],[],[]],
-      t,
+      zoom,
+      speed,
       g,
       showTrails
     }

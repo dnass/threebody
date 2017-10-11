@@ -1,13 +1,12 @@
 {
   "name": "threebody",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-scripts": "1.0.14",
     "react-three-renderer": "^3.2.1",
-    "react-url-query": "^1.2.0",
     "three": "^0.87.1"
   },
   "scripts": {

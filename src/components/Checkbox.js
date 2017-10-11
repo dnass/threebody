@@ -4,7 +4,6 @@ class Checkbox extends Component {
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
-    console.log(this.props.value);
   }
 
   handleInputChange(event) {
@@ -15,8 +14,8 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor={this.props.property}>{this.props.property} </label>
+      <div style={{ textAlign: 'left' }}>
+        <label htmlFor={this.props.property}>{this.props.label || this.props.property} </label>
         <input type='checkbox' checked={this.props.value} name={this.props.property} id={this.props.property} onChange={this.handleInputChange}></input>
       </div>
     );

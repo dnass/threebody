@@ -6,7 +6,6 @@ class Slider extends Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.clampAndRound = this.clampAndRound.bind(this);
-    this.padRight = this.padRight.bind(this);
   }
 
   handleInputChange(event) {
@@ -22,15 +21,11 @@ class Slider extends Component {
     return parseFloat(num).toFixed(2);
   }
 
-  padRight(text, pad) {
-    return `${text}${Array(pad - text.length + 1).join(' ')}`
-  }
-
   render() {
     return (
       <div className='slider'>
-        <span className='label'>{this.padRight(this.props.property, 2)}</span>
-        <input type='range' name={this.props.property} min={this.props.min} max={this.props.max} step={0.01} value={this.props.value} onChange={this.handleInputChange}></input>
+        <span className='label'>{this.props.property}</span>
+        <input type='range' name={this.props.property} min={this.props.min} max={this.props.max} step={this.props.step || 0.01} value={this.props.value} onChange={this.handleInputChange}></input>
         <input type='text' name={this.props.property} value={this.clampAndRound(this.props.value)} onChange={this.handleInputChange}></input>
       </div>
     );

@@ -3,9 +3,9 @@ input[type="range"] {
 }
 
 input[type="text"] {
-  width: 35px;
+  width: 45px;
   font-family: monospace;
   text-align: right;
-  background-color: inherit;
+  background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid black;
 }
