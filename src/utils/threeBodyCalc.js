@@ -1,5 +1,5 @@
 const threeBodyCalc = ({ speed, g, bodies, trails }) => {
-  const interval = 0.01;
+  const interval = 0.001;
   for (let j = 0; j < speed; j++) {
 
     const vectors = [
