@@ -1,10 +1,12 @@
 {
   "name": "threebody",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
+    "copy-to-clipboard": "^3.0.8",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
+    "react-numeric-input": "^2.2.0",
     "react-scripts": "1.0.14",
     "react-three-renderer": "^3.2.1",
     "three": "^0.87.1"
