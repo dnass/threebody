@@ -1,16 +1,38 @@
 .controls {
   padding: 6px 12px;
-  display: inline-block;
+  display: table-cell;
   font-family: monospace;
   position: relative;
   z-index: 1;
   background-color: white;
   text-align: right;
-  width: 100%;
 }
 
-.title {
+.hidden {
+  width: auto;
+}
+
+.title, .toggle {
   font-weight: bold;
   margin-bottom: 4px;
-  text-align: left;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  left: 10px;
+}
+
+.hidden .toggle {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.share {
+  float: left;
+  margin-top: 16px;
 }

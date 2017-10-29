@@ -3,7 +3,7 @@ input[type="range"] {
 }
 
 input[type="text"] {
-  width: 45px;
+  width: 55px;
   font-family: monospace;
   text-align: right;
   background-color: rgba(255, 255, 255, 0.7);
