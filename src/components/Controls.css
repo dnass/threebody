@@ -1,15 +1,19 @@
+.controls-container {
+  display: flex;
+}
+
 .controls {
   padding: 6px 12px;
-  display: table-cell;
   font-family: monospace;
   position: relative;
   z-index: 1;
   background-color: white;
   text-align: right;
+  max-width: 250px;
 }
 
 .hidden {
-  width: auto;
+  width: 20px;
 }
 
 .title, .toggle {
@@ -24,6 +28,7 @@
   position: absolute;
   top: 6px;
   left: 10px;
+  border: none;
 }
 
 .hidden .toggle {
@@ -35,4 +40,10 @@
 .share {
   float: left;
   margin-top: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+  .controls-container {
+    flex-direction: column;
+  }
 }
